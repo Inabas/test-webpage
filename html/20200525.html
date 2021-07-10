@@ -18,18 +18,22 @@
     <div class="header-title">
       <h1>20200525.html</h1>
     </div>
-    <div class="header-left w-50">
-      <div class="btn-toolbar">
-        <input type="textarea" id="" class="form-control" autofocus>
-        <button class="btn btn-dark">GO!</button>
+    <div class="header-left row">
+      <div class="form-inline p-1">
+        <input type="textarea" id="inputVal" class="form-control input-group-lg mr-2" autofocus>
+        <button class="btn btn-dark mr-2" id="btnRun">GO!</button>
+        <button class="btn btn-dark" id="btnStop">STOP</button>
       </div>
     </div>
     <div class="header-right">
-      <button class="btn btn-dark">STOP</button>
+      
     </div>
+    <input type="hidden" val="false">
   </header>
   <main>
-
+    <section>
+      <p id="result"></p>
+    </section>
   </main>
   <footer>
     <p class="mb-1">test webpages</p>
@@ -48,6 +52,26 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
+  <script>
+    $(function(){
+
+      $("#btnRun").click(function() {
+        $("#bool").val("true");
+        let bool = $("#bool").val() == true;
+        setInterval(function() {
+          if(bool) {
+            const inputVal = $("#inputVal").val();
+            $("#result").text(inputVal);
+            bool = $("#bool").val();
+          }
+        }, 500);
+      });
+
+      $("#btnStop").click(function() {
+        $("#bool").val("false");
+      })
+    });
+  </script>
 </body>
 
 </html>
